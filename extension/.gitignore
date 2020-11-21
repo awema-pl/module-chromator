@@ -1,0 +1,6 @@
+/*.log
+/package-lock.json
+/.idea
+/releases
+/node_modules
+/dist

@@ -1,0 +1,130 @@
+{
+    "extName": {
+        "message": "Chromator",
+        "description": "Extension name."
+    },
+    "extDescription": {
+        "message": "Chromator - Chrome extension.",
+        "description": "Extension description."
+    },
+    "options": {
+        "message": "opcje",
+        "description": "Word options."
+    },
+    "injected": {
+        "message": "wstrzyknięty",
+        "description": "Word injected."
+    },
+    "counter": {
+        "message": "licznik",
+        "description": "Word counter."
+    },
+    "apiConnectionIsActive": {
+        "message": "Połączenie API jest aktywne.",
+        "description": "Api connection is active."
+    },
+    "connectWithApi": {
+        "message": "Połącz się z API aby korzystać z roszerzenia.",
+        "description": "Connect with API."
+    },
+    "yourSubscription": {
+        "message": "Twoja subskrypcja",
+        "description": "Words your subscription."
+    },
+    "user": {
+        "message": "użytkownik",
+        "description": "Word user."
+    },
+    "save": {
+        "message": "zapisz",
+        "description": "Word save."
+    },
+    "developer": {
+        "message": "programista",
+        "description": "Word developer."
+    },
+    "expiresOn": {
+        "message": "wygasa dnia",
+        "description": "Words expires on."
+    },
+    "expiredOn": {
+        "message": "wygasła w dniu",
+        "description": "Words expired on."
+    },
+    "turnOnExtension": {
+        "message": "uruchom rozszerzenie",
+        "description": "Words turn on extension."
+    },
+    "turnOffExtension": {
+        "message": "wyłącz rozszerzenie",
+        "description": "Words turn off extension."
+    },
+    "message": {
+        "message": "wiadomość",
+        "description": "Word message."
+    },
+    "warning": {
+        "message": "uwaga",
+        "description": "Word warning."
+    },
+    "noConnectionToApiServer":{
+        "message": "Brak połączenia z serwerem API.",
+        "description": "No connection to API server."
+    },
+    "noAccessToApi":{
+        "message": "Brak dostępu do API.",
+        "description": "No access to API."
+    },
+    "noActiveSubscription": {
+        "message": "Brak aktywnej subsktypcji.",
+        "description": "No active subscription."
+    },
+    "successfullySaved": {
+        "message": "Pomyślnie zapisano.",
+        "description": "Successfully saved."
+    },
+    "updateExtension": {
+        "message": "Aktualizuj rozszerzenie",
+        "description": "Words update extension"
+    },
+    "newerVersionAvailable": {
+        "message": "Dostępna jest nowsza wersja rozszerzenia.",
+        "description": "A newer version of the extension is available."
+    },
+    "badgeShortUpdate": {
+        "message": "aktu",
+        "description": "Short word update in badge."
+    },
+    "plugin_connect": {
+        "message": "Połącz",
+        "description": "Connect."
+    },
+    "plugin_apiKey": {
+        "message": "Klucz API",
+        "description": "API key."
+    },
+    "plugin_disconnect": {
+        "message": "Rozłącz z API",
+        "description": "Disconnect with API."
+    },
+    "plugin_serverUrl": {
+        "message": "Adres serwera",
+        "description": "Words server URL."
+    },
+    "plugin_debug": {
+        "message": "Tryb debugowania",
+        "description": "Word debug."
+    },
+    "options_api": {
+        "message": "API",
+        "description": "Word API."
+    },
+    "options_general": {
+        "message": "Ogólne",
+        "description": "Word general in tab navigation."
+    },
+    "options_advanced": {
+        "message": "Zaawansowane",
+        "description": "Word advanced in tab navigation."
+    }
+}

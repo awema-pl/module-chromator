@@ -1,0 +1,60 @@
+{
+    "name": "__MSG_extName__",
+    "description": "__MSG_extDescription__",
+    "icons": {
+        "16": "icons/icon-16.png",
+        "128": "icons/icon-128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.baselinker.com/allegro_auctions.php?*"
+            ],
+            "js": [
+                "content-scripts/allegro-auctions/js/content-script.js"
+            ],
+            "css": [
+                "content-scripts/allegro-auctions/css/content-script.css"
+            ],
+            "run_at": "document_idle",
+            "all_frames": false
+        },
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "content-scripts/allegro-auctions/js/content-script.js"
+            ],
+            "css": [
+                "content-scripts/allegro-auctions/css/content-script.css"
+            ],
+            "run_at": "document_end",
+            "all_frames": false
+        }
+    ],
+    "options_page": "options/options.html",
+    "browser_action": {
+        "default_icon": {
+            "19": "icons/icon-16.png",
+            "38": "icons/icon-32.png"
+        },
+        "default_popup": "popup/popup.html",
+        "default_title": "__MSG_extName__"
+    },
+    "web_accessible_resources": [
+        "icons/icon-32.png"
+    ],
+    "background": {
+        "scripts": [
+            "background/js/background.js"
+        ],
+        "persistent": false
+    },
+    "default_locale": "pl",
+    "permissions": [
+        "storage",
+        "tabs"
+    ]
+}
