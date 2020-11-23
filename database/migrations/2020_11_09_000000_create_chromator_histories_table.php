@@ -11,7 +11,8 @@ class CreateChromatorHistoriesTable extends Migration
     {
         Schema::create(config('chromator.database.tables.chromator_histories'), function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->boolean('with_package');
             $table->string('name');
             $table->timestamps();
         });

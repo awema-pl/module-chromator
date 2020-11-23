@@ -5,32 +5,54 @@ return [
         'sidebar' => [
             [
                 'name' => 'Chromator',
-                'link' => '/panel/chromator/creator',
+                'link' => '/chromator/creator',
                 'icon' => 'speed',
                 'key' => 'chromator::menus.chromator',
                 'children_top' => [
                     [
                         'name' => 'Creator',
-                        'link' => '/panel/chromator/creator',
+                        'link' => '/chromator/creator',
                         'key' => 'chromator::menus.creator',
                     ],
                     [
                         'name' => 'Example',
-                        'link' => '/panel/chromator/example',
+                        'link' => '/chromator/example',
                         'key' => 'chromator::menus.example',
                     ]
                 ],
                 'children' => [
                     [
                         'name' => 'Creator',
-                        'link' => '/panel/chromator/creator',
+                        'link' => '/chromator/creator',
                         'key' => 'chromator::menus.creator',
                     ],
                     [
                         'name' => 'Example',
-                        'link' => '/panel/chromator/example',
+                        'link' => '/chromator/example',
                         'key' => 'chromator::menus.example',
                     ]
+                ],
+            ]
+        ],
+        'guestSidebar' => [
+            [
+                'name' => 'Chromator',
+                'link' => '/chromator/creator',
+                'icon' => 'speed',
+                'key' => 'chromator::menus.chromator',
+                'children_top' => [
+                    [
+                        'name' => 'Creator',
+                        'link' => '/chromator/creator',
+                        'key' => 'chromator::menus.creator',
+                    ],
+                ],
+                'children' => [
+                    [
+                        'name' => 'Creator',
+                        'link' => '/chromator/creator',
+                        'key' => 'chromator::menus.creator',
+                    ],
                 ],
             ]
         ],

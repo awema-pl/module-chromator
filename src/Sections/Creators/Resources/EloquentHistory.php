@@ -18,6 +18,7 @@ class EloquentHistory extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'with_package' => $this->with_package,
             'created_at' =>$this->created_at->format('Y-m-d H:i:s'),
         ];
     }

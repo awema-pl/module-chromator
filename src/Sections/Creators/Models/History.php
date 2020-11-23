@@ -14,7 +14,7 @@ class History extends Model implements HistoryContract
      * @var array
      */
     protected $fillable = [
-        'name', 'user_id'
+        'name', 'user_id','with_package'
     ];
 
     /**
@@ -22,7 +22,10 @@ class History extends Model implements HistoryContract
      *
      * @var array
      */
-    protected $casts = [];
+    protected $casts = [
+        'user_id' => 'integer',
+        'with_package' => 'boolean',
+    ];
 
     /**
      * Get the table associated with the model.

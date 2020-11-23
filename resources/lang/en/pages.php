@@ -13,9 +13,13 @@ return [
         "created_at" => "Created at",
         "name" => "Name",
         "confirm_create" => "Confirm create",
-        "confirm" => "Confirm"
+        "confirm" => "Confirm",
+        "create_extension_with_package" => "Create an extension with the Laravel package.",
+        "with_package" => "Created at",
+        "yes" => "Yes",
+        "no" => "No"
     ],
     "example" => [
         "history_extensions" => "History extensions"
-    ],
+    ]
 ];

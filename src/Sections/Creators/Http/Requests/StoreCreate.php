@@ -24,7 +24,8 @@ class StoreCreate extends FormRequest
     public function rules()
     {
         return [
-            'name_extension' => 'required|max:255|string|regex:/^[a-zA-Z]+$/u'
+            'name_extension' => 'required|max:255|string|regex:/^[a-zA-Z]+$/u',
+            'with_package' => 'required|boolean'
         ];
     }
 

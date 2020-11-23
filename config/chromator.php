@@ -23,17 +23,17 @@ return [
         ],
         'creator' => [
             'active' => true,
-            'prefix' => '/panel/chromator/creator',
+            'prefix' => '/chromator/creator',
             'name_prefix' => 'chromator.creator.',
             'middleware' => [
                 'web',
-                'auth',
-                'verified'
+                //'auth',
+                //'verified'
             ]
         ],
         'example' => [
             'active' => false,
-            'prefix' => '/panel/chromator/example',
+            'prefix' => '/chromator/example',
             'name_prefix' => 'chromator.example.',
             'middleware' => [
                 'web',

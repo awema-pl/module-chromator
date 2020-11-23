@@ -25,6 +25,9 @@
                            <fb-input name="name_extension" label="{{ _p('chromator::pages.creator.name_extension', 'Name extension') }}"
                            hint=""></fb-input>
                            <small class="text-caption">{{ _p('chromator::pages.creator.hint_only_letters', 'You can only use letters') }}</small>
+                          <div class="mt-20">
+                              <fb-switcher name="with_package" label="{{_p('chromator::pages.creator.create_extension_with_package', 'Create an extension with the Laravel package.')}}"></fb-switcher>
+                          </div>
                        </form-builder>
                    </div>
                 </div>
@@ -47,6 +50,16 @@
                                     </template>
                                 </tb-column>
                                 <tb-column name="name" label="{{ _p('chromator::pages.creator.name', 'Name') }}"></tb-column>
+                                <tb-column name="with_package" label="{{ _p('chromator::pages.creator.with_package', 'Created at') }}">
+                                    <template slot-scope="col">
+                                       <span v-if="col.data.with_package">
+                                           {{ _p('chromator::pages.creator.yes', 'Yes') }}
+                                       </span>
+                                        <span v-else>
+                                           {{ _p('chromator::pages.creator.no', 'No') }}
+                                       </span>
+                                    </template>
+                                </tb-column>
                             </table-builder>
                             <paginate-builder
                                 :meta="table.meta"
@@ -71,6 +84,9 @@
                       send-text="{{ _p('chromator::pages.creator.confirm', 'Confirm') }}" store-data="createExtension"
                       disabled-dialog>
             <fb-input name="name_extension" label="{{ _p('chromator::pages.creator.name_extension', 'Name extension') }}"></fb-input>
+            <div class="mt-20">
+                <fb-switcher name="with_package" label="{{_p('chromator::pages.creator.create_extension_with_package', 'Create an extension with the Laravel package.')}}"></fb-switcher>
+            </div>
         </form-builder>
     </modal-window>
 @endsection

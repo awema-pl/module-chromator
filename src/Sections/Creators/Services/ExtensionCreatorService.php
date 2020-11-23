@@ -25,12 +25,13 @@ class ExtensionCreatorService
      * Build Zip extension
      *
      * @param string $nameExtension
+     * @param bool $withPackage
      * @return string
      * @throws Exception
      */
-    public function buildZipExtension(string $nameExtension)
+    public function buildZipExtension(string $nameExtension, bool $withPackage)
     {
-        $extensionSourceFiles = $this->extensionSourceFiles();
+        $extensionSourceFiles = $this->extensionSourceFiles($withPackage);
         $dirTempName = $this->buildFilename($nameExtension);
         $this->copyDirectories($nameExtension, $extensionSourceFiles, $dirTempName);
         $this->copyFiles($nameExtension, $extensionSourceFiles, $dirTempName);
@@ -43,21 +44,27 @@ class ExtensionCreatorService
     /**
      * Dir extension source
      *
+     * @param bool $withPackage
      * @return false|string
      */
-    private function dirExtensionSource()
+    private function dirExtensionSource(bool $withPackage)
     {
-        return realpath(__DIR__ . '/../../../../extension');
+        if ($withPackage){
+            return realpath(__DIR__ . '/../../../../');
+        } else {
+            return realpath(__DIR__ . '/../../../../extension');
+        }
     }
 
     /**
      * Extension source files
      *
+     * @param bool $withPackage
      * @return Finder
      */
-    private function extensionSourceFiles()
+    private function extensionSourceFiles(bool $withPackage)
     {
-        $dirExtensionSource = $this->dirExtensionSource();
+        $dirExtensionSource = $this->dirExtensionSource($withPackage);
         return $this->finder
             ->ignoreDotFiles(false)
             ->ignoreVCSIgnored(true)

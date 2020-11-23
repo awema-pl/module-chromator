@@ -21,6 +21,10 @@ return [
         'hint_only_letters' => 'Możesz używać wyłącznie liter',
         'created_at' => 'Utworzono',
         'user' => 'Użytkownik',
+        'create_extension_with_package' =>'Utwórz rozszerzenie z pakietem Laravel.',
+        'with_package' => 'Z pakietem',
+        'yes' =>'Tak',
+        'no' =>'Nie',
     ],
     'example' => [
         'meta_title' => 'Przykład',

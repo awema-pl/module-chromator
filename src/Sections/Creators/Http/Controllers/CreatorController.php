@@ -89,9 +89,10 @@ class CreatorController extends Controller
      */
     public function store(StoreCreate $request)
     {
+        $withPackage= $request->with_package;
         $nameExtension = $this->extensionName->buildName($request->name_extension);
-        $dirTempName = $this->extensionCreator->buildZipExtension($nameExtension);
-        $this->histories->create(['name' => $nameExtension]);
+        $dirTempName = $this->extensionCreator->buildZipExtension($nameExtension, $withPackage);
+        $this->histories->create(['name' => $nameExtension, 'with_package' =>$withPackage]);
         return response()->json([
             'redirectUrl' =>route('chromator.creator.download', ['filename' => $dirTempName]),
         ]);
