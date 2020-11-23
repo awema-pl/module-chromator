@@ -77,7 +77,7 @@
 
 @section('modals')
 
-    <modal-window name="create_extension_confirm" class="modal_formbuilder"
+    <content-window name="create_extension_confirm" class="modal_formbuilder"
                   title="{{ _p('chromator::pages.creator.confirm_create', 'Confirm create') }}">
         <form-builder :edited="true" url="{{ route('chromator.creator.store') }}"
                       @sended="AWEMA.emit('content::histories_table:update')"
@@ -88,5 +88,5 @@
                 <fb-switcher name="with_package" label="{{_p('chromator::pages.creator.create_extension_with_package', 'Create an extension with the Laravel package.')}}"></fb-switcher>
             </div>
         </form-builder>
-    </modal-window>
+    </content-window>
 @endsection
