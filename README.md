@@ -84,3 +84,4 @@ php artisan vendor:publish --provider="AwemaPL\Chromator\ChromatorServiceProvide
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
+ 
