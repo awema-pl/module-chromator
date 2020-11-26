@@ -9,3 +9,4 @@
 /extension/.idea
 /extension/releases
 /extension/dist
+/extension/yarn.lock

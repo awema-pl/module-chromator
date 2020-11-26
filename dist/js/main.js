@@ -1,7 +1,413 @@
-/**
- * Bundle of AWEMA chromator
- * Generated: 2020-11-09 12:54:42
- * Version: 1.0.0
- */
+(function () {
+    'use strict';
 
-!function(){"use strict";function t(t,...e){!0===AWEMA_CONFIG.dev&&console.debug(t,e)}var e={example_data:"example-data-from-config"},a={props:{example_data:{type:String,default(){return this._config.example_data}}},inject:{},computed:{exampleFromFunction:()=>"example-function"},beforeCreate(){this._config=Object.assign(e,AWEMA.utils.object.get(AWEMA_CONFIG,"chromator",{}))}};let o=0;var s=function(t,e,a,o,s,n,i,r,d,c){"boolean"!=typeof i&&(d=r,r=i,i=!1);var m,_="function"==typeof a?a.options:a;if(t&&t.render&&(_.render=t.render,_.staticRenderFns=t.staticRenderFns,_._compiled=!0,s&&(_.functional=!0)),o&&(_._scopeId=o),n?(m=function(t){(t=t||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(t=__VUE_SSR_CONTEXT__),e&&e.call(this,d(t)),t&&t._registeredComponents&&t._registeredComponents.add(n)},_._ssrRegister=m):e&&(m=i?function(){e.call(this,c(this.$root.$options.shadowRoot))}:function(t){e.call(this,r(t))}),m)if(_.functional){var l=_.render;_.render=function(t,e){return m.call(e),l(t,e)}}else{var h=_.beforeCreate;_.beforeCreate=h?[].concat(h,m):[m]}return a}({render:function(){var t=this,e=t.$createElement,a=t._self._c||e;return a("div",[a("p",[t._v("Translation key "),a("code",[t._v("CHROMATOR_EXAMPLE")]),t._v(" from "),a("code",[t._v("chromator/resources/lang/**/js.php")]),t._v(": "+t._s(t.$lang.CHROMATOR_EXAMPLE))]),t._v(" "),a("button",{staticClass:"form-builder__send btn",on:{click:t.testDebug}},[t._v("Test console log for debug")]),t._v(" "),a("p",[t._v("From config JS file: "+t._s(this.example_data))]),t._v(" "),a("p",[t._v("Example function: "+t._s(this.exampleFromFunction))]),t._v(" "),a("p",[a("button",{staticClass:"form-builder__send btn",on:{click:t.testLoading}},[t._v("Test loading")]),t._v(" "),t.isLoading?a("span",[t._v("is loading...")]):t._e()])])},staticRenderFns:[]},void 0,{name:"chromator",mixins:[a],props:{name:{type:String,default:()=>`chromator-${o++}`},default:Object,storeData:String},computed:{chromator(){return this.$store.state.chromator[this.name]},isLoading(){return this.chromator&&this.chromator.isLoading}},created(){let t=this.storeData?this.$store.state[this.storeData]:this.default||{};this.$store.commit("chromator/create",{name:this.name,data:t})},mounted(){},methods:{testDebug(){t("message",["data1"],["data2"])},testLoading(){this.isLoading||(AWEMA.emit(`chromator::${this.name}:before-test-loading`),this.$store.dispatch("chromator/testLoading",{name:this.name}).then(e=>{t("data",e),this.$emit("success",e.data),this.$store.$set(this.name,this.$get(e,"data",{}))}))}},beforeDestroy(){}},void 0,!1,void 0,void 0,void 0);var n={installed:!1,install:function(t){this.installed||(this.installed=!0/t.component("chromator",s))}},i={CHROMATOR_EXAMPLE:"chromator example"};var r={state:()=>({}),getters:{chromator:t=>e=>t[e],isLoading:(t,e)=>t=>{const a=e.chromator(t);return a&&a.isLoading}},mutations:{create(t,{name:e,data:a}){Vue.set(t,e,{isLoading:!1,data:a})},setLoading(t,{name:e,status:a}){Vue.set(t[e],"isLoading",a)}},actions:{restoreData:({state:t},{name:e})=>t[e].exampleData||"example-data",testLoading:({state:e,commit:a,dispatch:o},{name:s})=>new Promise(n=>{let i;e[s];a("setLoading",{name:s,status:!0}),o("restoreData",{name:s}).then(e=>(t("data",e),["data-2"])).then(e=>{i=e,t("data-2",e)}).finally(()=>{setTimeout(()=>{a("setLoading",{name:s,status:!1}),n(i)},2e3)})})},namespaced:!0};const d={name:"chromator",version:"1.0.0",install(t){Vue.use(n),t._store.registerModule("chromator",r),t.lang=i}};window&&"AWEMA"in window?AWEMA.use(d):(window.__awema_plugins_stack__=window.__awema_plugins_stack__||[],window.__awema_plugins_stack__.push(d))}();
+    var name = "chromator";
+    var version = "1.0.0";
+
+    /**
+     * Example const
+     *
+     * @const {String} EXAMPLE_CONST
+     */
+
+
+    /**
+     * Restores flatted single-level object to a nested object
+     *
+     * @returns {Boolean}
+     *
+     */
+
+    function exampleFunction() {
+        return 'example-function';
+    }
+
+    function consoleDebug(message, ...optionalParams){
+        if (AWEMA_CONFIG.dev === true){
+            console.debug(message, optionalParams);
+        }
+    }
+
+    var _config = {
+        example_data: 'example-data-from-config'
+    };
+
+    var chromatorMixin = {
+
+        props: {
+            example_data: {
+                type: String,
+                default() {
+                    return this._config.example_data
+                }
+            }
+        },
+
+        inject: {
+
+        },
+
+        computed: {
+
+            exampleFromFunction() {
+                return exampleFunction();
+            },
+        },
+
+        beforeCreate() {
+            this._config = Object.assign( _config, AWEMA.utils.object.get(AWEMA_CONFIG, 'chromator', {}) );
+        }
+    };
+
+    //
+
+    let _uniqSectionId = 0;
+
+    var script = {
+
+        name: 'chromator',
+
+        mixins: [ chromatorMixin ],
+
+        props: {
+            name: {
+                type: String,
+                default() {
+                    return `chromator-${ _uniqSectionId++ }`
+                }
+            },
+
+            default: Object,
+
+            storeData: String,
+        },
+
+
+        computed: {
+            chromator() {
+                return this.$store.state.chromator[this.name]
+            },
+
+            isLoading() {
+                return this.chromator && this.chromator.isLoading
+            },
+        },
+
+        created() {
+
+            let data = this.storeData ? this.$store.state[this.storeData] : (this.default || {});
+
+            this.$store.commit('chromator/create', {
+                name: this.name,
+                data
+            });
+        },
+
+        mounted() {
+
+        },
+
+        methods: {
+            testDebug(){
+                consoleDebug('message', ['data1'], ['data2']);
+            },
+
+            testLoading(){
+                if ( this.isLoading) return;
+
+                AWEMA.emit(`chromator::${this.name}:before-test-loading`);
+
+                this.$store.dispatch('chromator/testLoading', {
+                    name: this.name
+                }).then( data => {
+                    consoleDebug('data', data);
+                    this.$emit('success', data.data);
+                    this.$store.$set(this.name, this.$get(data, 'data', {}));
+                });
+            }
+        },
+
+
+        beforeDestroy() {
+
+        }
+    };
+
+    function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
+    /* server only */
+    , shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+      if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+      } // Vue.extend constructor export interop.
+
+
+      var options = typeof script === 'function' ? script.options : script; // render functions
+
+      if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true; // functional template
+
+        if (isFunctionalTemplate) {
+          options.functional = true;
+        }
+      } // scopedId
+
+
+      if (scopeId) {
+        options._scopeId = scopeId;
+      }
+
+      var hook;
+
+      if (moduleIdentifier) {
+        // server build
+        hook = function hook(context) {
+          // 2.3 injection
+          context = context || // cached call
+          this.$vnode && this.$vnode.ssrContext || // stateful
+          this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
+          // 2.2 with runInNewContext: true
+
+          if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+            context = __VUE_SSR_CONTEXT__;
+          } // inject component styles
+
+
+          if (style) {
+            style.call(this, createInjectorSSR(context));
+          } // register component module identifier for async chunk inference
+
+
+          if (context && context._registeredComponents) {
+            context._registeredComponents.add(moduleIdentifier);
+          }
+        }; // used by ssr in case component is cached and beforeCreate
+        // never gets called
+
+
+        options._ssrRegister = hook;
+      } else if (style) {
+        hook = shadowMode ? function () {
+          style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
+        } : function (context) {
+          style.call(this, createInjector(context));
+        };
+      }
+
+      if (hook) {
+        if (options.functional) {
+          // register for functional component in vue file
+          var originalRender = options.render;
+
+          options.render = function renderWithStyleInjection(h, context) {
+            hook.call(context);
+            return originalRender(h, context);
+          };
+        } else {
+          // inject component registration as beforeCreate hook
+          var existing = options.beforeCreate;
+          options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+      }
+
+      return script;
+    }
+
+    var normalizeComponent_1 = normalizeComponent;
+
+    /* script */
+    const __vue_script__ = script;
+
+    /* template */
+    var __vue_render__ = function() {
+      var _vm = this;
+      var _h = _vm.$createElement;
+      var _c = _vm._self._c || _h;
+      return _c("div", [
+        _c("p", [
+          _vm._v("Translation key "),
+          _c("code", [_vm._v("CHROMATOR_EXAMPLE")]),
+          _vm._v(" from "),
+          _c("code", [_vm._v("chromator/resources/lang/**/js.php")]),
+          _vm._v(": " + _vm._s(_vm.$lang.CHROMATOR_EXAMPLE))
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "form-builder__send btn", on: { click: _vm.testDebug } },
+          [_vm._v("Test console log for debug")]
+        ),
+        _vm._v(" "),
+        _c("p", [_vm._v("From config JS file: " + _vm._s(this.example_data))]),
+        _vm._v(" "),
+        _c("p", [_vm._v("Example function: " + _vm._s(this.exampleFromFunction))]),
+        _vm._v(" "),
+        _c("p", [
+          _c(
+            "button",
+            {
+              staticClass: "form-builder__send btn",
+              on: { click: _vm.testLoading }
+            },
+            [_vm._v("Test loading")]
+          ),
+          _vm._v(" "),
+          _vm.isLoading ? _c("span", [_vm._v("is loading...")]) : _vm._e()
+        ])
+      ])
+    };
+    var __vue_staticRenderFns__ = [];
+    __vue_render__._withStripped = true;
+
+      /* style */
+      const __vue_inject_styles__ = undefined;
+      /* scoped */
+      const __vue_scope_id__ = undefined;
+      /* module identifier */
+      const __vue_module_identifier__ = undefined;
+      /* functional template */
+      const __vue_is_functional_template__ = false;
+      /* style inject */
+      
+      /* style inject SSR */
+      
+
+      
+      var chromator = normalizeComponent_1(
+        { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+        __vue_inject_styles__,
+        __vue_script__,
+        __vue_scope_id__,
+        __vue_is_functional_template__,
+        __vue_module_identifier__,
+        undefined,
+        undefined
+      );
+
+    // importing components
+    // import { loadExternalLib } from '../utils/externalLib.js'
+
+    function install(Vue) {
+
+        if ( this.installed ) return
+        this.installed = true
+
+        /Vue.component('chromator', chromator);
+        // Vue.component('example-component', resolve => {
+        //     AWEMA.utils.loadModule(
+        //         'vue-example-plugin',
+        //         'https://unpkg.com/vue-example-plugin@0.0.1/dist/vue-example-plugin.js',
+        //         () => { resolve(importExampleComponent) }
+        //     )
+        // })
+        // Vue.component('example-component-2', resolve => {
+        //     loadExternalLib().then( () => { resolve(importExampleComponent2) })
+        // })
+    }
+
+    var plugin = {
+
+        installed: false,
+
+        install
+    };
+
+    var lang = {
+        CHROMATOR_EXAMPLE: 'chromator example',
+    };
+
+    const state = () => ({});
+
+    const getters = {
+
+        chromator: state => name => {
+            return state[name]
+        },
+
+        isLoading: (state, getters) => name => {
+            const chromator = getters.chromator(name);
+            return chromator && chromator.isLoading
+        },
+    };
+
+    const mutations = {
+
+        create(state, {name, data}) {
+            Vue.set(state, name, {
+                isLoading: false,
+                data,
+            });
+        },
+
+        setLoading(state, {name, status}) {
+            Vue.set(state[name], 'isLoading', status);
+        },
+    };
+
+    const actions = {
+
+        restoreData({ state }, { name }) {
+            const chromator = state[name];
+            return chromator.exampleData || 'example-data';
+        },
+
+        testLoading({ state, commit, dispatch }, {name}) {
+
+            return new Promise( resolve => {
+
+                let _data;
+                const chromator = state[name];
+
+                commit('setLoading', {name, status:true});
+
+                dispatch('restoreData', { name })
+                    .then( data => {
+                        consoleDebug('data', data);
+                        return ['data-2']
+                    })
+                    .then( data => {
+                        _data = data;
+                        consoleDebug('data-2', data);
+                    })
+                    .finally( () => {
+                       setTimeout(()=>{
+                           commit('setLoading', { name, status: false });
+                           resolve( _data );
+                       }, 2000);
+                    });
+            })
+        }
+    };
+
+    var chromatorModule = {
+        state,
+        getters,
+        mutations,
+        actions,
+        namespaced: true
+    };
+
+    const awemaPlugin = {
+
+        name, version,
+
+        install(AWEMA) {
+            //Vue.use(VueExternalPlugin)
+            Vue.use(plugin);
+
+            AWEMA._store.registerModule('chromator', chromatorModule);
+            AWEMA.lang = lang;
+        }
+    };
+
+    if (window && ('AWEMA' in window)) {
+        AWEMA.use(awemaPlugin);
+    } else {
+        window.__awema_plugins_stack__ = window.__awema_plugins_stack__ || [];
+        window.__awema_plugins_stack__.push(awemaPlugin);
+    }
+
+}());
