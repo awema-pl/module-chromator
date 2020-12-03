@@ -207,7 +207,7 @@ class Chromator implements ChromatorContract
     public function includeLangJs()
     {
         $lang = config('indigo-layout.frontend.lang', []);
-        $lang = array_merge_recursive($lang, app(\Illuminate\Contracts\Translation\Translator::class)->get('chromator::js'));
+        $lang = array_merge_recursive($lang, app(\Illuminate\Contracts\Translation\Translator::class)->get('chromator::js')?:[]);
         app('config')->set('indigo-layout.frontend.lang', $lang);
     }
 
