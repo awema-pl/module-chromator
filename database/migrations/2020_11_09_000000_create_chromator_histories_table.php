@@ -11,15 +11,25 @@ class CreateChromatorHistoriesTable extends Migration
     {
         Schema::create(config('chromator.database.tables.chromator_histories'), function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable();
             $table->boolean('with_package');
             $table->string('name');
             $table->timestamps();
+        });
+        
+        Schema::table(config('chromator.database.tables.chromator_histories'), function (Blueprint $table) {
+            $table->foreignId('user_id')
+                ->nullable()
+                ->constrained(config('chromator.database.tables.users'))
+                ->onDelete('cascade');
         });
     }
 
     public function down()
     {
+        Schema::table(config('chromator.database.tables.chromator_histories'), function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+        });
+        
         Schema::drop(config('chromator.database.tables.chromator_histories'));
     }
 }

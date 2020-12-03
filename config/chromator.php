@@ -81,6 +81,7 @@ return [
 
     'database' => [
         'tables' => [
+            'users' =>'users',
             'chromator_histories' =>'chromator_histories',
         ]
     ],
