@@ -25,27 +25,30 @@
                 <div class="alert text-center mb-0"
                      v-bind:class="[isSubscribed ? 'alert-success' : 'alert-warning']" role="alert">
                     {{ $chrome.i18n.getMessage('apiConnectionIsActive') }}
-                  <div class="subscription mt-1">
-                      <div>
-                          <small>{{$_.upperFirst($chrome.i18n.getMessage('yourSubscription'))}} "{{subscriptionOptionName}}",</small>
-                      </div>
-                      <div>
-                          <small>
-                              <template v-if="isSubscribed">
-                                  {{$chrome.i18n.getMessage('expiresOn')}}
-                              </template>
-                          </small>
-                          <template v-if="!isSubscribed">
-                              <span class="badge badge-danger">{{$chrome.i18n.getMessage('expiredOn')}}</span>
-                          </template>
-                          <small>
-                              {{subscriptionExpiresAt}}.
-                          </small>
-                      </div>
-                      <div>
-                          <small>{{ $_.upperFirst($chrome.i18n.getMessage('user')) }}: {{subscriptionUserEmail}}.</small>
-                      </div>
-                  </div>
+                    <div class="subscription mt-1">
+                        <div v-if="subscriptionExpiresAt">
+                            <div>
+                                <small>{{$_.upperFirst($chrome.i18n.getMessage('yourSubscription'))}} "{{subscriptionOptionName}}",</small>
+                            </div>
+                            <small>
+                                <template v-if="isSubscribed">
+                                    {{$chrome.i18n.getMessage('expiresOn')}}
+                                </template>
+                            </small>
+                            <template v-if="!isSubscribed">
+                                <span class="badge badge-danger">{{$chrome.i18n.getMessage('expiredOn')}}</span>
+                            </template>
+                            <small>
+                                {{getExpiresAt.format('YYYY-MM-DD HH:mm:ss')}}
+                            </small>
+                        </div>
+                        <div v-if="!subscriptionExpiresAt">
+                            <span class="badge badge-danger">{{$chrome.i18n.getMessage('subscriptionExpired')}}</span>
+                        </div>
+                        <div>
+                            <small>{{ $_.upperFirst($chrome.i18n.getMessage('user')) }}: {{subscriptionUserEmail}}.</small>
+                        </div>
+                    </div>
                 </div>
                 <b-button v-if="!fromPlugin" class="btn-block mt-3" size="sm" variant="outline-primary" @click="handleDisconnectApi">
                     {{ $chrome.i18n.getMessage('plugin_disconnect') }}
@@ -76,6 +79,7 @@ export default {
             subscriptionUserEmail: 'subscriptionUserEmail',
             subscriptionOptionName: 'subscriptionOptionName',
             subscriptionExpiresAt: 'subscriptionExpiresAt',
+            getExpiresAt: 'getExpiresAt',
             isSubscribed: 'isSubscribed',
             isApiConnected: 'isApiConnected',
         }),

@@ -26,7 +26,7 @@ class EloquentInformation extends JsonResource
                 'option' =>[
                     'name' =>optional($option)->name,
                 ],
-                'expires_at' =>  optional(optional($membership)->expires_at)->format('Y-m-d H:i:s'),
+                'expires_at' => optional($membership)->expires_at,
             ],
         ];
 

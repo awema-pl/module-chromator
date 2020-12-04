@@ -16,6 +16,7 @@ export default {
     isSubscribed: state => isSubscribed(state),
     isAccess: state=>isSubscribed(state) && state.active,
     update: state => state.update,
+    getExpiresAt: state => getExpiresAt(state),
 };
 
 
